@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+type CardContent = {
+  title : string;
+  description : string;
+  imageUrl : string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

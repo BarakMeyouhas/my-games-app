@@ -1,11 +1,23 @@
-.example-card {
-  max-width: 400px;
-}
 
-.example-header-image {
-  background-size: cover;
+.container{
+  padding: 16px;
+  background-color: rgb(241, 241, 252);
 }
-
-.custom-card {
-  margin-bottom: 50px; /* Adjust the margin value as needed */
+.column-label{
+  margin-right: 8px;
+  font-size: 1rem;
+}
+.mat-elevation-z4{
+  background-color: white;
+}
+.gameCard{
+  border: 1px solid black;
+  border-radius: 10px;
+  max-height: 350px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.gameCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid black; /* Add border color */
 }

@@ -12,8 +12,10 @@ import { GamesListComponent } from './pages/games-list/games-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSliderModule } from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,6 +36,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSlideToggleModule,
     MatCardModule,
     MatGridListModule,
+    FlexLayoutModule,
+    MatSliderModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
