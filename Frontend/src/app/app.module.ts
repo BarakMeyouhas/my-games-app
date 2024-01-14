@@ -9,6 +9,12 @@ import { MainComponent } from './Layout/main/main.component';
 import { CryptoListComponent } from './pages/crypto-list/crypto-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GamesListComponent } from './pages/games-list/games-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,15 @@ import { GamesListComponent } from './pages/games-list/games-list.component';
     CryptoListComponent,
     GamesListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatGridListModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

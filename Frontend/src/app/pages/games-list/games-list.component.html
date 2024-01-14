@@ -1,8 +1,19 @@
-<p>games-list works!</p>
-<hr />
-<div class="container">
-    <div *ngFor="let item of gamesData">
-        <h3>{{item.title}}</h3>
-        <img src="{{item.thumbnail}}" width="130" />
-    </div>
-</div>
+<mat-grid-list cols="2" rowHeight="2:1" mat-gutter>
+    <mat-grid-tile *ngFor="let item of gamesData">
+      <mat-card class="example-card custom-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ item.title }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image width="230" src="{{ item.thumbnail }}" alt="Game Image" />
+        <mat-card-content>
+          <p>{{ item.short_description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
