@@ -16,6 +16,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+
 
 
 @NgModule({
@@ -39,8 +47,21 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatSliderModule,
     FormsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export class InputClearableExample {
+  value = 'Clear me';
+}
+export class SidenavAutosizeExample {
+  showFiller = false;
+}
