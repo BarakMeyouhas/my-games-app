@@ -6,7 +6,6 @@ import { HeaderComponent } from './Layout/header/header.component';
 import { MenuComponent } from './Layout/menu/menu.component';
 import { FooterComponent } from './Layout/footer/footer.component';
 import { MainComponent } from './Layout/main/main.component';
-import { CryptoListComponent } from './pages/crypto-list/crypto-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GamesListComponent } from './pages/games-list/games-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { GameDetailsComponent } from './pages/game-details/game-details.component';
 
 
 
@@ -33,8 +33,8 @@ import {MatListModule} from '@angular/material/list';
     MenuComponent,
     FooterComponent,
     MainComponent,
-    CryptoListComponent,
     GamesListComponent,
+    GameDetailsComponent,
   ],
   imports: [
     BrowserModule,

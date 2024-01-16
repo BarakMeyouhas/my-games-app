@@ -1,23 +1,27 @@
-
-.container{
+.container {
   padding: 26px;
   background-color: rgb(241, 241, 252);
 }
-.column-label{
+.column-label {
   margin-right: 8px;
   font-size: 1rem;
 }
-.mat-elevation-z4{
+.mat-elevation-z4 {
   background-color: white;
 }
-.gameCard{
-  border: 1px solid black;
-  border-radius: 10px;
+.gameCard {
+  border: 1px solid transparent;
   max-height: 350px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    border 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.008);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid black; /* Add your desired border color */
+    cursor: pointer;
+  }
 }
-.gameCard:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid black; /* Add border color */
+.loadmore{
+  color: black;
 }

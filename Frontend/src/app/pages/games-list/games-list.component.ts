@@ -1,20 +1,39 @@
-import { Component } from '@angular/core';
+// games-list.component.ts
+
+import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
 
 @Component({
   selector: 'app-games-list',
   templateUrl: './games-list.component.html',
-  styleUrl: './games-list.component.scss',
+  styleUrls: ['./games-list.component.scss'],
 })
-export class GamesListComponent {
-  gamesData: any = '';
-  constructor(private GamesService: GamesService) {}
+export class GamesListComponent implements OnInit {
+  gamesData: any[] = [];
+  showEffect: boolean = false;
+  page: number = 1; // Initial page
+
+  constructor(private gamesService: GamesService) {}
 
   ngOnInit(): void {
-    //get a data from api request
-    this.GamesService.makeApiRequest().subscribe((data) => {
-      console.log(data);
-      this.gamesData = data;
+    this.loadGames();
+  }
+
+  loadGames(): void {
+    this.gamesService.getAllGames(this.page).subscribe((results) => {
+      this.gamesData = [...this.gamesData, ...results.results];
+      this.page++;
+    });
+  }
+
+  loadMoreGames(): void {
+    this.page++;
+    this.loadGames();
+  }
+
+  loadGameDetails(gameId: string): void {
+    this.gamesService.getGameDetails(gameId).subscribe((details) => {
+      console.log('Game Details:', details);
     });
   }
 }

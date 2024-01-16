@@ -13,7 +13,7 @@ type CardContent = {
 })
 export class AppComponent {
   title = 'my-games-app';
-  showFiller = true; // Initial state for the filler content
+  showFiller = true;
 
   toggleDrawer(): void {
     this.showFiller = !this.showFiller;

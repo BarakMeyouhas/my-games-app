@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CryptoListComponent } from './crypto-list.component';
+import { GameDetailsComponent } from './game-details.component';
 
-describe('CryptoListComponent', () => {
-  let component: CryptoListComponent;
-  let fixture: ComponentFixture<CryptoListComponent>;
+describe('GameDetailsComponent', () => {
+  let component: GameDetailsComponent;
+  let fixture: ComponentFixture<GameDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CryptoListComponent]
+      declarations: [GameDetailsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CryptoListComponent);
+    fixture = TestBed.createComponent(GameDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
