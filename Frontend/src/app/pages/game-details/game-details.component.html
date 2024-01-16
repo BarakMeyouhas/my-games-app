@@ -1,10 +1,20 @@
+<div>
+  <mat-card-title class="gameTitle">{{ gameDetails.name }}</mat-card-title>
+</div>
 <div class="container">
-  <div *ngIf="gameDetails" class="gameBox">
-    <div class="image-container">
-      <img [src]="gameDetails.background_image" alt="Game Image" />
-    </div>
-    <div class="game-information">
-      <h1>{{ gameDetails.name }}</h1>
-    </div>
-  </div>
+  <mat-card class="game-card">
+    <mat-card-header class="game-card-header">
+      <mat-card-title-group>
+        <!-- <mat-card-subtitle>Extra large</mat-card-subtitle> -->
+        <img
+          mat-card-xl-image
+          [src]="gameDetails.background_image"
+          alt="Game Image"
+        />
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content class="game-card-content">
+      {{ gameDetails.description_raw }}
+    </mat-card-content>
+  </mat-card>
 </div>

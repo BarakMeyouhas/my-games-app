@@ -7,20 +7,20 @@
   font-size: 1rem;
 }
 .mat-elevation-z4 {
-  background-color: #383a3b;
-  padding: 30px 15px;
+  background-color: rgb(28, 28, 28);
+  // padding: 30px 15px;
   border-radius: 23px;
   margin-bottom: 30px;
 }
 .gameCard {
   border: 1px solid transparent;
-  max-height: 350px;
+  height: 300px;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
     border 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.008);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.011);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
     border: 1px solid black; /* Add your desired border color */
     cursor: pointer;
   }
@@ -30,5 +30,8 @@
 }
 .cardimage {
   border-radius: 23px;
-  max-height: 250px;
+  height: 190px;
+}
+.gameTitle{
+  color: white;
 }

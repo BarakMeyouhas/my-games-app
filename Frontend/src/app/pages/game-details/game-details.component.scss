@@ -1,32 +1,33 @@
-// game-details.component.scss
-.container{
+.container {
   display: flex;
   justify-content: center;
-}
-:host {
-  display: block;
-  padding: 20px;
+  align-items: center;
+  height: 100vh;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 16px;
+.game-card {
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  margin-top: 150px;
 }
 
-p {
-  font-size: 16px;
-  margin-bottom: 8px;
+.game-card-header {
+  background-color: transparent; /* Header background color */
+  color: white; /* Text color */
 }
 
 img {
-  min-width: 50%;
-  height: 350px;
-  margin-top: 16px;
+  width: 100%;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.image-container{
-  display: flex;
-  justify-content: start;
+
+.game-card-content {
+  padding: 16px; /* Optional: Add padding to the card content */
+  font-size: large;
+}
+.gameTitle{
+  margin: 20px;
 }
 
