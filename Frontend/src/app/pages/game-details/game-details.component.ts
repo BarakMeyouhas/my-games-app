@@ -24,6 +24,7 @@ export class GameDetailsComponent implements OnInit {
     // Fetch game details using the GamesService
     this.gamesService.getGameDetails(this.gameId).subscribe((details) => {
       this.gameDetails = details;
+      console.log(this.gameDetails);
     });
   }
 }

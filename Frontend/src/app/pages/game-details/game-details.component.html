@@ -1,6 +1,10 @@
-<div *ngIf="gameDetails">
-  <h2>Game Details</h2>
-  <p>ID: {{ gameDetails.id }}</p>
-  <p>Title: {{ gameDetails.name }}</p>
-  <img [src]="gameDetails.background_image" alt="Game Image" />
+<div class="container">
+  <div *ngIf="gameDetails" class="gameBox">
+    <div class="image-container">
+      <img [src]="gameDetails.background_image" alt="Game Image" />
+    </div>
+    <div class="game-information">
+      <h1>{{ gameDetails.name }}</h1>
+    </div>
+  </div>
 </div>

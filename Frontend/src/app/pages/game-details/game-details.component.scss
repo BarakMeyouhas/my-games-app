@@ -1,25 +1,32 @@
 // game-details.component.scss
-
+.container{
+  display: flex;
+  justify-content: center;
+}
 :host {
-    display: block;
-    padding: 20px;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  
-  p {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  
-  img {
-    max-width: 700px;
-    height: 400px;
-    margin-top: 16px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
+  display: block;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+img {
+  min-width: 50%;
+  height: 350px;
+  margin-top: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.image-container{
+  display: flex;
+  justify-content: start;
+}
+
