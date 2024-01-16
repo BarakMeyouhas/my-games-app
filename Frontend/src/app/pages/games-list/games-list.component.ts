@@ -1,7 +1,6 @@
-// games-list.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../../services/games.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-games-list',
@@ -13,7 +12,10 @@ export class GamesListComponent implements OnInit {
   showEffect: boolean = false;
   page: number = 1; // Initial page
 
-  constructor(private gamesService: GamesService) {}
+  constructor(
+    private gamesService: GamesService,
+    private router: Router // Add this line
+  ) {}
 
   ngOnInit(): void {
     this.loadGames();
@@ -31,9 +33,13 @@ export class GamesListComponent implements OnInit {
     this.loadGames();
   }
 
-  loadGameDetails(gameId: string): void {
+  gameDetailsById(gameId: string): void {
     this.gamesService.getGameDetails(gameId).subscribe((details) => {
       console.log('Game Details:', details);
     });
+  }
+  navigateToGameDetails(gameId: number): void {
+    // Navigate to the 'gameDetails' route with the game ID as a parameter
+    this.router.navigate(['/gameDetails', gameId]);
   }
 }

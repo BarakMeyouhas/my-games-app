@@ -1,13 +1,16 @@
 .container {
   padding: 26px;
-  background-color: rgb(241, 241, 252);
+  background-color: #1f2122;
 }
 .column-label {
   margin-right: 8px;
   font-size: 1rem;
 }
 .mat-elevation-z4 {
-  background-color: white;
+  background-color: #383a3b;
+  padding: 30px 15px;
+  border-radius: 23px;
+  margin-bottom: 30px;
 }
 .gameCard {
   border: 1px solid transparent;
@@ -22,6 +25,10 @@
     cursor: pointer;
   }
 }
-.loadmore{
+.loadmore {
   color: black;
+}
+.cardimage {
+  border-radius: 23px;
+  max-height: 250px;
 }

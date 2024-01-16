@@ -1,10 +1,6 @@
-
 <div *ngIf="gameDetails">
-    <h2>Game Details</h2>
-    <p>ID: {{ gameDetails.id }}</p>
-    <p>Title: {{ gameDetails.title }}</p>
-    <!-- Add other details as needed -->
-  
-    <!-- Display the thumbnail -->
-    <img [src]="gameDetails.thumbnail" alt="Game Thumbnail" />
-  </div>
+  <h2>Game Details</h2>
+  <p>ID: {{ gameDetails.id }}</p>
+  <p>Title: {{ gameDetails.name }}</p>
+  <img [src]="gameDetails.background_image" alt="Game Image" />
+</div>

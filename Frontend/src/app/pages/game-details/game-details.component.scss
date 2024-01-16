@@ -1,0 +1,25 @@
+// game-details.component.scss
+
+:host {
+    display: block;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  img {
+    max-width: 700px;
+    height: 400px;
+    margin-top: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  

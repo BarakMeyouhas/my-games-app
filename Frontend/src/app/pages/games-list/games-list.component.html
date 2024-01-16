@@ -5,7 +5,7 @@
     <div
       *ngFor="let item of gamesData"
       fxFlex="100%"
-      fxFlex.gt-md="calc(20% - 16px)"
+      fxFlex.gt-md="calc(25% - 16px)"
       fxFlex.gt-sm="calc(33% - 16px)"
       fxFlex.gt-xs="calc(50% - 16px)"
       fxFlex.gt-xxs="calc(50% - 16px)"
@@ -14,7 +14,7 @@
         class="gameCard mat-elevation-z4"
         (mouseover)="showEffect = true"
         (mouseout)="showEffect = false"
-        (click)="loadGameDetails(item.id)"
+        (click)="navigateToGameDetails(item.id)"
       >
         <img
           mat-card-image
@@ -22,6 +22,7 @@
           height="150px"
           src="{{ item.background_image }}"
           alt="Game Image"
+          class="cardimage"
         />
         <mat-card-content>
           <h3>{{ item.name }}</h3>
