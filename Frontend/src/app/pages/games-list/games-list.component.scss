@@ -8,7 +8,6 @@
 }
 .mat-elevation-z4 {
   background-color: rgb(28, 28, 28);
-  // padding: 30px 15px;
   border-radius: 23px;
   margin-bottom: 30px;
 }
@@ -21,7 +20,7 @@
   &:hover {
     transform: scale(1.011);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid black; /* Add your desired border color */
+    border: 1px solid black;
     cursor: pointer;
   }
 }
@@ -32,6 +31,50 @@
   border-radius: 23px;
   height: 190px;
 }
-.gameTitle{
+.gameTitle {
   color: white;
+}
+.gameFooter {
+  color: white;
+}
+.gameContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .gameRating {
+// }
+
+.material-icons {
+  vertical-align: middle;
+}
+.genres-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.horizontal-genres {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+  font-size: smaller;
+  color: #ffffff;
+}
+.genre-box {
+  font-size: smaller;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: #252728;
+}
+.rating-box {
+  padding: 3px;
+  border-radius: 5px;
+  border: 1px solid green;
+  color: green;
+  height: 20px;
+  margin-bottom: 15px;
+  margin-left: 10px;
 }

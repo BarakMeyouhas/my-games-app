@@ -14,7 +14,7 @@ export class GamesListComponent implements OnInit {
 
   constructor(
     private gamesService: GamesService,
-    private router: Router // Add this line
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +38,7 @@ export class GamesListComponent implements OnInit {
       console.log('Game Details:', details);
     });
   }
+
   navigateToGameDetails(gameId: number): void {
     // Navigate to the 'gameDetails' route with the game ID as a parameter
     this.router.navigate(['/gameDetails', gameId]);

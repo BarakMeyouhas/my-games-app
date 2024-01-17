@@ -1,3 +1,4 @@
+<!-- game-list.component.html -->
 <div class="container">
   <div fxLayoutGap="16px grid" fxLayout="row wrap">
     <div
@@ -23,16 +24,40 @@
           class="cardimage"
         />
         <mat-card-content>
-          <h3 class="gameTitle">{{ item.name }}</h3>
+          <div class="gameContent">
+            <h3 class="gameTitle">{{ item.name }}</h3>
+            <div
+              *ngIf="item.genres && item.genres.length"
+              class="genres-container"
+            >
+              <div class="horizontal-genres">
+                <div
+                  *ngFor="let genre of item.genres.slice(0, 2)"
+                  class="genre-box"
+                >
+                  {{ genre.name }}
+                </div>
+              </div>
+            </div>
+          </div>
         </mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions class="gameFooter">
+          <div class="rating-box">
+            <p class="gameRating">
+              <span>{{ item.rating * 20  | number:'1.0-0' }}</span>
+            </p>
+          </div>
+        </mat-card-actions>
+        <!-- <mat-card-actions>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
-        </mat-card-actions>
+        </mat-card-actions> -->
       </mat-card>
     </div>
   </div>
   <div class="load-more-container">
-    <button class="loadmore" mat-button (click)="loadGames()">Load More</button>
+    <button class="load-more" mat-button (click)="loadGames()">
+      Load More
+    </button>
   </div>
 </div>
