@@ -23,6 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { GameDetailsComponent } from './pages/game-details/game-details.component';
+import { TruncatePipe } from './features/truncate.pipe';
 
 
 
@@ -35,6 +36,7 @@ import { GameDetailsComponent } from './pages/game-details/game-details.componen
     MainComponent,
     GamesListComponent,
     GameDetailsComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,

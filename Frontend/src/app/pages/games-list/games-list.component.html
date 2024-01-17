@@ -25,7 +25,7 @@
         />
         <mat-card-content>
           <div class="gameContent">
-            <h3 class="gameTitle">{{ item.name }}</h3>
+            <h3 class="gameTitle">{{ item.name | truncate : 4 }}</h3>
             <div
               *ngIf="item.genres && item.genres.length"
               class="genres-container"
@@ -42,16 +42,25 @@
           </div>
         </mat-card-content>
         <mat-card-actions class="gameFooter">
+          <div
+            *ngIf="item.platforms && item.platforms.length"
+            class="platforms-container"
+          >
+            <div class="horizontal-platforms">
+              <div
+                *ngFor="let platform of item.platforms.slice(0, 3)"
+                class="platform-box"
+              >
+                {{ platform.platform.name }}
+              </div>
+            </div>
+          </div>
           <div class="rating-box">
             <p class="gameRating">
-              <span>{{ item.rating * 20  | number:'1.0-0' }}</span>
+              <span>{{ item.rating * 20 | number : "1.0-0" }}</span>
             </p>
           </div>
         </mat-card-actions>
-        <!-- <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions> -->
       </mat-card>
     </div>
   </div>

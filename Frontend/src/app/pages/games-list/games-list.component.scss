@@ -57,7 +57,7 @@
 
 .horizontal-genres {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 2.5px;
   font-size: smaller;
   color: #ffffff;
@@ -76,5 +76,32 @@
   color: green;
   height: 20px;
   margin-bottom: 15px;
-  margin-left: 10px;
+  // display: flex;
+  // align-items: start;
+}
+.gameDevolper {
+  color: white;
+}
+.platforms-container {
+  margin-left: 6px;
+}
+.platform-box {
+  border: 1px solid white;
+  height: 20px;
+  border-radius: 5px;
+  color: white;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+.horizontal-platforms {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5px;
+  font-size: smaller;
+  color: #ffffff;
+  margin-bottom: 9px;
+}
+.gameFooter{
+  display: flex;
+  justify-content: space-between;
 }
