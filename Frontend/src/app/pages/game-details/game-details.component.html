@@ -34,40 +34,46 @@
     </mat-card-header>
     <mat-card-content class="game-card-content">
       <h1 class="gameTitle">{{ gameDetails.name }}</h1>
-      <h4>{{ gameDetails.description_raw }}</h4>
-      <h2>Release Date: {{ gameDetails.released }}</h2>
-      <h1>Developers:</h1>
       <div
         *ngIf="gameDetails.developers && gameDetails.developers.length"
         class="developers-container"
       >
         <div class="horizontal-developers">
+          <h5>Developers:</h5>
+          &nbsp;
           <ng-container
             *ngFor="let developer of gameDetails.developers; let last = last"
           >
             <span class="developers-box">
-              <h4>{{ developer.name }}</h4>
+              <h5>{{ developer.name }}</h5>
             </span>
             <ng-container *ngIf="!last"
-              ><h4>,</h4>
+              ><h5>,</h5>
               &nbsp;</ng-container
             >
           </ng-container>
         </div>
       </div>
-      <h1>Publishers:</h1>
       <div
         *ngIf="gameDetails.publishers && gameDetails.publishers.length"
         class="publishers-container"
       >
         <div class="horizontal-publishers">
+          <h5>Publishers:</h5>
+          &nbsp;
           <div
             *ngFor="let publisher of gameDetails.publishers"
             class="publisher-box"
           >
-            {{ publisher.name }}
+            <h5>{{ publisher.name }}</h5>
           </div>
         </div>
+      </div>
+      <div class="dateContainer">
+        <h5>Release Date: {{ gameDetails.released }}</h5>
+      </div>
+      <div class="descriptionContainer">
+        <h5>{{ gameDetails.description_raw }}</h5>
       </div>
     </mat-card-content>
   </mat-card>
