@@ -2,32 +2,123 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: transparent;
 }
 
 .game-card {
   width: 100%;
-  max-width: 800px;
+  max-width: 1400px;
   box-sizing: border-box;
-  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px;
 }
 
 .game-card-header {
-  background-color: transparent; /* Header background color */
-  color: white; /* Text color */
+  background-color: transparent;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-img {
+.gameImage {
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover; // Preserve aspect ratio and cover the container
   border-radius: 8px;
 }
 
 .game-card-content {
-  padding: 16px; /* Optional: Add padding to the card content */
+  padding: 16px;
   font-size: large;
+  text-align: center; // Center the text
+  flex: 1; // Take half of the card width
 }
-.gameTitle{
+
+.gameTitle {
   margin: 20px;
+}
+.horizontal-platforms {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  font-size: smaller;
+  color: #ffffff;
+  margin-bottom: 9px;
+}
+.platform-box {
+  border: 1px solid white;
+  height: 20px;
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  margin-top: 5px;
+}
+.genres-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+.horizontal-genres {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5px;
+  font-size: large;
+  color: #ffffff;
+}
+.genre-box {
+  font-size: smaller;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: #252728;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 600px) {
+  .game-card {
+    flex-direction: row; // Change back to row for larger screens
+  }
+
+  .game-card-content {
+    padding: 16px;
+    font-size: large;
+    text-align: left; // Adjust text alignment for larger screens
+  }
+  .horizontal-platforms {
+    display: flex;
+    flex-wrap: wrap; // Allow platforms to wrap onto the next line
+    justify-content: center; // Center the platforms horizontally
+  }
+
+}
+@media screen and (max-width: 376px){
+  .gameImage {
+    max-width: 270px;
+    margin: 0 auto;
+    height: 100%;
+  }
+  .game-card-header {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 476px) {
+  .horizontal-platforms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .platform-box {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
 }
 

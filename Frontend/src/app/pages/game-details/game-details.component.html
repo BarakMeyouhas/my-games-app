@@ -1,20 +1,74 @@
-<div>
-  <mat-card-title class="gameTitle">{{ gameDetails.name }}</mat-card-title>
-</div>
 <div class="container">
   <mat-card class="game-card">
     <mat-card-header class="game-card-header">
-      <mat-card-title-group>
-        <!-- <mat-card-subtitle>Extra large</mat-card-subtitle> -->
+      <mat-card-title-group class="mat-card-title-group">
         <img
           mat-card-xl-image
           [src]="gameDetails.background_image"
           alt="Game Image"
+          class="gameImage"
         />
       </mat-card-title-group>
+      <div
+        *ngIf="gameDetails.platforms && gameDetails.platforms.length"
+        class="platforms-container"
+      >
+        <div class="horizontal-platforms">
+          <ng-container *ngFor="let platform of gameDetails.platforms">
+            <span class="platform-box">
+              <h4>{{ platform.platform.name }}</h4>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+      <div
+        *ngIf="gameDetails.genres && gameDetails.genres.length"
+        class="genres-container"
+      >
+        <div class="horizontal-genres">
+          <div *ngFor="let genre of gameDetails.genres" class="genre-box">
+            {{ genre.name }}
+          </div>
+        </div>
+      </div>
     </mat-card-header>
     <mat-card-content class="game-card-content">
-      {{ gameDetails.description_raw }}
+      <h1 class="gameTitle">{{ gameDetails.name }}</h1>
+      <h4>{{ gameDetails.description_raw }}</h4>
+      <h2>Release Date: {{ gameDetails.released }}</h2>
+      <h1>Developers:</h1>
+      <div
+        *ngIf="gameDetails.developers && gameDetails.developers.length"
+        class="developers-container"
+      >
+        <div class="horizontal-developers">
+          <ng-container
+            *ngFor="let developer of gameDetails.developers; let last = last"
+          >
+            <span class="developers-box">
+              <h4>{{ developer.name }}</h4>
+            </span>
+            <ng-container *ngIf="!last"
+              ><h4>,</h4>
+              &nbsp;</ng-container
+            >
+          </ng-container>
+        </div>
+      </div>
+      <h1>Publishers:</h1>
+      <div
+        *ngIf="gameDetails.publishers && gameDetails.publishers.length"
+        class="publishers-container"
+      >
+        <div class="horizontal-publishers">
+          <div
+            *ngFor="let publisher of gameDetails.publishers"
+            class="publisher-box"
+          >
+            {{ publisher.name }}
+          </div>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
