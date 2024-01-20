@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 type CardContent = {
   title: string;
   description: string;

@@ -1,14 +1,17 @@
-.MainLayout {
-  height: 100%;
-  box-sizing: border-box;
-  grid-template-rows: 22% 75% 3%;
-  grid-template-columns: repeat(6, 1fr);
-  header,
-  footer {
-    grid-column: span 6;
-  }
-  main{
-    grid-column: span 5;
-  }
-}
+// .MainLayout {
+//   height: 100%;
+//   box-sizing: border-box;
+//   grid-template-rows: 22% 75% 3%;
+//   grid-template-columns: repeat(6, 1fr);
+//   header,
+//   footer {
+//     grid-column: span 6;
+//   }
+//   main{
+//     grid-column: span 5;
+//   }
+// }
 
+.main-container {
+  height: 100%;
+}

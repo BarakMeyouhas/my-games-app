@@ -2,79 +2,107 @@
   <mat-card class="game-card">
     <mat-card-header class="game-card-header">
       <mat-card-title-group class="mat-card-title-group">
-        <img
-          mat-card-xl-image
-          [src]="gameDetails.background_image"
-          alt="Game Image"
-          class="gameImage"
-        />
+        <mat-grid-list cols="1" rowHeight="2:1">
+          <div class="overlayContainer">
+            <img
+              mat-card-xl-image
+              [src]="gameDetails.background_image"
+              alt="Game Image"
+              class="gameImage"
+            />
+            <div class="darkOverlay">
+              <div class="overlayTitle">
+                <span class="gameTitle">{{ gameDetails.name }}</span>
+                <div
+                  *ngIf="
+                    gameDetails.developers && gameDetails.developers.length
+                  "
+                >
+                  &nbsp;
+                  <div
+                    class="developers-box"
+                    *ngFor="
+                      let developer of gameDetails.developers;
+                      let last = last
+                    "
+                  >
+                    <span class="developerName">{{ developer.name }}</span>
+                    <ng-container *ngIf="!last"
+                      ><h5>,</h5>
+                      &nbsp;</ng-container
+                    >
+              </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-grid-list>
       </mat-card-title-group>
-      <div
-        *ngIf="gameDetails.platforms && gameDetails.platforms.length"
-        class="platforms-container"
-      >
-        <div class="horizontal-platforms">
-          <ng-container *ngFor="let platform of gameDetails.platforms">
-            <span class="platform-box">
-              <h4>{{ platform.platform.name }}</h4>
-            </span>
-          </ng-container>
-        </div>
-      </div>
-      <div
-        *ngIf="gameDetails.genres && gameDetails.genres.length"
-        class="genres-container"
-      >
-        <div class="horizontal-genres">
-          <div *ngFor="let genre of gameDetails.genres" class="genre-box">
-            {{ genre.name }}
-          </div>
-        </div>
-      </div>
     </mat-card-header>
-    <mat-card-content class="game-card-content">
-      <h1 class="gameTitle">{{ gameDetails.name }}</h1>
-      <div
-        *ngIf="gameDetails.developers && gameDetails.developers.length"
-        class="developers-container"
-      >
-        <div class="horizontal-developers">
-          <h5>Developers:</h5>
-          &nbsp;
-          <ng-container
-            *ngFor="let developer of gameDetails.developers; let last = last"
-          >
-            <span class="developers-box">
-              <h5>{{ developer.name }}</h5>
-            </span>
-            <ng-container *ngIf="!last"
-              ><h5>,</h5>
-              &nbsp;</ng-container
-            >
-          </ng-container>
-        </div>
-      </div>
-      <div
-        *ngIf="gameDetails.publishers && gameDetails.publishers.length"
-        class="publishers-container"
-      >
-        <div class="horizontal-publishers">
-          <h5>Publishers:</h5>
-          &nbsp;
-          <div
-            *ngFor="let publisher of gameDetails.publishers"
-            class="publisher-box"
-          >
-            <h5>{{ publisher.name }}</h5>
-          </div>
-        </div>
-      </div>
-      <div class="dateContainer">
-        <h5>Release Date: {{ gameDetails.released }}</h5>
-      </div>
-      <div class="descriptionContainer">
-        <h5>{{ gameDetails.description_raw }}</h5>
-      </div>
-    </mat-card-content>
   </mat-card>
 </div>
+
+<!-- for the previews card style -->
+
+<!-- <mat-card class="game-card">
+  <mat-card-header class="game-card-header">
+    <mat-card-title-group class="mat-card-title-group">
+      <img
+        mat-card-xl-image
+        [src]="gameDetails.background_image"
+        alt="Game Image"
+        class="gameImage"
+      />
+    </mat-card-title-group>
+    <div
+      *ngIf="gameDetails.platforms && gameDetails.platforms.length"
+      class="platforms-container"
+    >
+      <div class="horizontal-platforms">
+        <ng-container *ngFor="let platform of gameDetails.platforms">
+          <span class="platform-box">
+            <h4>{{ platform.platform.name }}</h4>
+          </span>
+        </ng-container>
+      </div>
+    </div>
+    <div
+      *ngIf="gameDetails.genres && gameDetails.genres.length"
+      class="genres-container"
+    >
+      <div class="horizontal-genres">
+        <div *ngFor="let genre of gameDetails.genres" class="genre-box">
+          {{ genre.name }}
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="gameDetails.developers && gameDetails.developers.length"
+      class="developers-container"
+    >
+      <div class="horizontal-developers">
+        &nbsp;
+        <ng-container
+          *ngFor="let developer of gameDetails.developers; let last = last"
+        >
+          <span class="developers-box">
+            <h4>{{ developer.name }}</h4>
+          </span>
+          <ng-container *ngIf="!last"
+            ><h5>,</h5>
+            &nbsp;</ng-container
+          >
+        </ng-container>
+      </div>
+    </div>
+    <div class="dateContainer">
+      <h4>Release Date: {{ gameDetails.released }}</h4>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="game-card-content">
+    <h1 class="gameTitle">{{ gameDetails.name }}</h1>
+    <div class="descriptionContainer">
+      <h5>{{ gameDetails.description_raw }}</h5>
+    </div>
+  </mat-card-content>
+</mat-card> -->
