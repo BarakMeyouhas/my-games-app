@@ -40,9 +40,48 @@
 .developerName {
   color: white;
 }
+.developers-box {
+  margin-right: 70px;
+  margin-bottom: 10px;
+}
+// .platforms-container{
+
+// }
+.horizontal-platforms {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  font-size: smaller;
+  color: #ffffff;
+  margin-bottom: 9px;
+}
+.platform-box {
+  border: 1px solid white;
+  height: 20px;
+  border-radius: 5px;
+  color: white;
+  padding: 2px;
+  margin-bottom: 5px;
+}
+.rating-box {
+  padding: 5px;
+  padding-top: 10px;
+  border-radius: 5px;
+  border: 1px solid green;
+  color: green;
+  height: 25px;
+  width: 40px;
+  margin-bottom: 15px;
+}
+.gameRating {
+  font-size: 2rem;
+}
 
 // media queries
 @media screen and (max-width: 320px) {
+  .darkOverlay{
+    height: auto;
+  }
   .gameTitle > h1 {
     color: white;
     font-weight: lighter;
@@ -51,14 +90,18 @@
   }
   .developerName {
     color: white;
-    font-size: 0.6rem;
+    font-size: 0.95rem;
   }
 }
 
 @media screen and (max-width: 426px) {
   .developerName {
     color: white;
-    font-size: 0.6rem;
+    font-size: 0.95rem;
+  }
+  .developers-box {
+    margin-right: 85px;
+    margin-bottom: 20px;
   }
 }
 
@@ -66,7 +109,7 @@
   .darkOverlay {
     transform: translate(-50%, 40%);
     width: 90%;
-    height: 80%;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 0;
   }
@@ -90,29 +133,64 @@
     font-size: 2rem;
     margin-top: 30px;
   }
+  .developers-box {
+    margin-right: 85px;
+    margin-bottom: 10px;
+  }
+  .developerName {
+    font-size: 1rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .gameTitle {
-    font-size: 3rem;
+    font-size: 2.7rem;
     margin-top: 30px;
-    margin-bottom: 0.2rem;
+    margin-bottom: 1rem;
   }
 
   .developerName {
-    font-size: 0.8rem;
-    margin-top: 10px; /* Adjust the top margin to move it down */
+    font-size: 1.7rem;
+    margin-top: 40px;
+    margin-bottom: 2rem;
+    margin-right: 40px;
+  }
+  .platform-box{
+    font-size: 1.2rem;
+    padding: 4px;
+    margin-top: 17px;
+    margin-bottom: 17px;
   }
 
 }
 @media screen and (min-width: 1440px) {
   .gameTitle {
-    font-size: 4rem;
+    font-size: 2.7rem;
     margin-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .developerName {
-    font-size: 1rem;
-    margin-top: 10px; /* Adjust the top margin to move it down */
+    font-size: 2.2rem;
+    margin-right: 140px;
+  }
+  .platform-box{
+    font-size: 1.5rem;
+    padding: 6px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+  }
+  .rating-box {
+    padding: 5px;
+    padding-top: 30px;
+    border-radius: 5px;
+    border: 1px solid green;
+    color: green;
+    height: 50px;
+    width: 70px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  .gameRating{
+    font-size: 3rem;
   }
 }
 @media screen and (max-width: 1440px) {
@@ -123,7 +201,7 @@
     padding-left: 20px;
   }
 }
-@media screen and (min-width: 2560px){
+@media screen and (min-width: 2560px) {
   .overlayTitle {
     display: flex;
     flex-direction: column;
@@ -135,10 +213,34 @@
   .gameTitle {
     font-size: 5.5rem;
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
   .developerName {
-    font-size: 1.8rem;
+    font-size: 3.8rem;
+    margin-right: 200px
+  }
+  .developers-box {
+    margin-right: 200px;
+    margin-bottom: 40px;
+  }
+  .platform-box {
+    padding: 28px;
+    font-size: 3rem;
+  }
+  .rating-box {
+    padding: 50px;
+    padding-top: 60px;
+    border-radius: 5px;
+    border: 2px solid green;
+    color: green;
+    height: 40px;
+    width: 50px;
+    margin-bottom: 25px;
+    margin-top: 55px;
+    padding-right: 105px;
+  }
+  .gameRating{
+    font-size: 6rem;
   }
 }
 

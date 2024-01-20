@@ -12,7 +12,7 @@
             />
             <div class="darkOverlay">
               <div class="overlayTitle">
-                <span class="gameTitle">{{ gameDetails.name }}</span>
+                <span class="gameTitle">{{ gameDetails.name | truncate : 4 }}</span>
                 <div
                   *ngIf="
                     gameDetails.developers && gameDetails.developers.length
@@ -22,7 +22,7 @@
                   <div
                     class="developers-box"
                     *ngFor="
-                      let developer of gameDetails.developers;
+                      let developer of gameDetails.developers.slice(0, 1);
                       let last = last
                     "
                   >
@@ -31,7 +31,29 @@
                       ><h5>,</h5>
                       &nbsp;</ng-container
                     >
-              </div>
+                  </div>
+                  <div
+                    *ngIf="
+                      gameDetails.platforms && gameDetails.platforms.length
+                    "
+                    class="platforms-container"
+                  >
+                    <div class="horizontal-platforms">
+                      <span
+                        *ngFor="
+                          let platform of gameDetails.platforms.slice(0, 3)
+                        "
+                        class="platform-box"
+                      >
+                        {{ platform.platform.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="rating-box">
+                    <p class="gameRating">
+                      <span>{{ gameDetails.rating * 20 | number : "1.0-0" }}</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

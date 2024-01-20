@@ -30,10 +30,8 @@ import { TruncatePipe } from './features/truncate.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     MenuComponent,
     FooterComponent,
-    MainComponent,
     GamesListComponent,
     GameDetailsComponent,
     TruncatePipe,
