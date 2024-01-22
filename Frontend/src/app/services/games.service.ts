@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
 })
 export class GamesService {
   private APIKEY = 'c1cff7ce8544427797e07592e1e53079';
-  private gamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}&dates=2023-01-01,2023-12-31&ordering=-added&page=`;
+  private gamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}&dates=2018-01-01,2018-12-31&ordering=-added&page=`;
   private gameDetailsURL = 'https://api.rawg.io/api/games';
 
   constructor(private http: HttpClient) {}
