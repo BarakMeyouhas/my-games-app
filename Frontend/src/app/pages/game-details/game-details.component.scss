@@ -145,7 +145,7 @@
   display: flex;
   flex-direction: column;
 }
-.description{
+.description {
   font-size: 1rem;
 }
 
@@ -217,6 +217,34 @@
 .release-box {
   margin-right: 10px;
 }
+.game-description {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: x-large;
+}
+.game-tags-container {
+  height: auto;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Changed to column */
+}
+
+.tags-array {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.horizontal-tags {
+  color: white;
+  flex-wrap: wrap;
+  padding: 100px;
+}
+
+.tags-hero {
+  margin-top: 60px; /* Added margin-bottom to create space between h1 and hr */
+}
 
 // media queries
 @media screen and (max-width: 320px) {
@@ -239,14 +267,14 @@
   .stores-box {
     margin-bottom: 30px;
   }
-  .publishers-box>p{
+  .publishers-box > p {
     font-size: 0.68rem;
     margin-top: 10px;
   }
-  .horizontal-website{
+  .horizontal-website {
     flex-direction: column;
   }
-  #website-title{
+  #website-title {
     align-self: start;
     font-size: 1rem;
   }
@@ -262,11 +290,11 @@
   .release-box {
     font-size: 1.7rem;
   }
-  .publishers-box>p{
+  .publishers-box > p {
     font-size: 0.68rem;
     margin-top: 10px;
   }
-  .website-box>p{
+  .website-box > p {
     font-size: 0.68rem;
     margin-top: 10px;
   }
