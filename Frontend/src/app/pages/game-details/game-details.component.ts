@@ -1,6 +1,6 @@
 // game-details.component.ts
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GamesService } from '../../services/games.service';
 
@@ -26,5 +26,8 @@ export class GameDetailsComponent implements OnInit {
       this.gameDetails = details;
       console.log(this.gameDetails);
     });
+  }
+  redirectToStore(domain: string): void {
+    window.open('http://' + domain, '_blank');
   }
 }

@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <div class="container">
   <mat-card class="game-card">
     <mat-card-header class="game-card-header">
@@ -69,10 +70,11 @@
 
   <div class="stores-container">
     <div class="stores-title">
-      <div><br><br><br><br><br>
-        <h1>Available Stores:</h1>
+      <div>
+        <br /><br /><br /><br /><br />
+        <h1 id="hero">Available Stores</h1>
         <hr />
-        <div fxLayoutGap="16px grid" fxLayout="row wrap" class="stores-array">
+        <div fxLayout="row wrap" class="stores-array">
           <div *ngIf="gameDetails.stores && gameDetails.stores.length">
             <div class="horizontal-stores">
               <div
@@ -84,7 +86,10 @@
                 fxFlex.gt-xs="calc(50% - 16px)"
                 fxFlex.gt-xxs="calc(50% - 16px)"
               >
-                <mat-card class="store-card">
+                <mat-card
+                  class="store-card"
+                  (click)="redirectToStore(store.store.domain)"
+                >
                   <div class="image-container">
                     <img
                       mat-card-image
@@ -106,16 +111,68 @@
       </div>
     </div>
   </div>
-</div>
-<!-- for the previews card style -->
+  <br /><br /><br /><br /><br />
+  <h1 id="hero">Game Details</h1>
+  <hr />
+  <div class="details-container">
+    <mat-card class="additional-info">
+      <div
+        *ngIf="gameDetails.genres && gameDetails.genres.length"
+        class="genres-container"
+      >
+        <div class="horizontal-genres">
+          <div id="genres-title">Genre:</div>
+          <div *ngFor="let genre of gameDetails.genres" class="genre-box">
+            {{ genre.name }}
+          </div>
+        </div>
+      </div>
+      <div class="horizontal-Achievements">
+        <div id="Achievements-title">Achievements:</div>
+        <div class="Achievements-box">
+          {{ gameDetails.achievements_count }}
+        </div>
+      </div>
+      <div
+        *ngIf="gameDetails.publishers && gameDetails.publishers.length"
+        class="publishers-container"
+      >
+        <div class="horizontal-publishers">
+          <div id="publishers-title">Publishers:</div>
+          <div
+            *ngFor="let publisher of gameDetails.publishers"
+            class="publishers-box"
+          >
+            <p>{{ publisher.name }}</p>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="gameDetails.esrb_rating" class="esrb_rating-container">
+        <div class="horizontal-esrb_rating">
+          <div id="esrb_rating-title">ESRB:</div>
+          <div class="esrb_rating-box">
+            {{ gameDetails.esrb_rating.name }}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="gameDetails.website" class="website-container">
+        <div class="horizontal-website">
+          <div id="website-title">Website:</div>
+          <div class="website-box">
+            <p>{{ gameDetails.website }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="release-date-container">
+        <div class="horizontal-release-date">
+          <div id="release-date-title">Release Date:</div>
+          <div class="release-box">
+            {{ gameDetails.released }}
+          </div>
+        </div>
+      </div>
+    </mat-card>
 
-<!-- <div
-  *ngIf="gameDetails.genres && gameDetails.genres.length"
-  class="genres-container"
->
-  <div class="horizontal-genres">
-    <div *ngFor="let genre of gameDetails.genres" class="genre-box">
-      {{ genre.name }}
-    </div>
+    <mat-card class="description">{{ gameDetails.description_raw }} </mat-card>
   </div>
-</div> -->
+</div>
