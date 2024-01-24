@@ -17,6 +17,7 @@ export class GamesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadGames();
+    this.loadAllGames();
   }
 
   loadAllGames(): void {

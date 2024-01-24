@@ -1,17 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin&display=swap");
 
+#logo {
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 115px;
+}
+.menu-button {
+  margin-top: 5px;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
 
+.search {
+  border-radius: 20px;
+  padding: 10px;
+  background: #5d5d5d;
+  border-color: black;
+  width: 150px;
+  transition: width 0.3s;
+}
 
-// .MainLayout {
-//   height: 100%;
-//   box-sizing: border-box;
-//   grid-template-rows: 22% 75% 3%;
-//   grid-template-columns: repeat(6, 1fr);
-//   header,
-//   footer {
-//     grid-column: span 6;
-//   }
-//   main{
-//     grid-column: span 5;
-//   }
-// }
+.search:focus {
+  outline: none;
+  border-color: white;
+  box-shadow: 0 0 5px rgba(30, 136, 229, 0.5);
+  width: 200px; /* Increase the width on focus */
+}
 
+.search-icon {
+  margin-right: 6px;
+}
+.search-icon:hover {
+  cursor: pointer;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 426px) {
+  .search {
+    width: 100px;
+  }
+  .search:focus {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .search {
+    width: 95px;
+  }
+  .search:focus {
+    width: 110px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .search {
+    width: 75px;
+  }
+  .search:focus {
+    width: 85px;
+  }
+}

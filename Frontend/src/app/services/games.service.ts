@@ -11,6 +11,8 @@ export class GamesService {
   private gameDetailsURL = 'https://api.rawg.io/api/games';
   //for all the games
   private allGamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}`;
+  //search by name url
+  // https://www.rawg.io/api/games?search=${slug}&key=c1cff7ce8544427797e07592e1e53079
 
   constructor(private http: HttpClient) {}
 
