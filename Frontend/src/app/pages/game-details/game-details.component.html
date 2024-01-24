@@ -115,7 +115,11 @@
   <h1 id="hero">Game Details</h1>
   <hr />
   <div class="details-container">
-    <mat-card class="additional-info">
+    <div class="description">
+      <p class="game-description">Game Description</p>
+      {{ gameDetails.description_raw }}
+    </div>
+    <div class="additional-info">
       <div
         *ngIf="gameDetails.genres && gameDetails.genres.length"
         class="genres-container"
@@ -171,15 +175,29 @@
           </div>
         </div>
       </div>
-    </mat-card>
-
-    <mat-card class="description">
-      <p class="game-description">Game Description</p>
-      {{ gameDetails.description_raw }}
-    </mat-card>
+      <div *ngIf="gameDetails.tags && gameDetails.tags.length" class="tags-container">
+        <div class="horizontal-tags">
+          <div id="tags-title">Tags:</div>
+          <div *ngFor="let tag of gameDetails.tags" class="tag-box">
+            {{ tag.name }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <br /><br /><br /><br /><br />
-  <div class="game-tags-container">
+
+
+  <!-- started working on chart -->
+
+
+  <div style="width: 800px;"><canvas id="chart"></canvas></div>
+  <script type="module" src="acquisitions.js"></script>
+
+  <!-- chart ends here -->
+
+
+  <!-- <div class="game-tags-container">
     <div class="tags-hero">
       <h1 id="hero">Game Tags</h1>
       <hr />
@@ -191,9 +209,9 @@
             *ngFor="let tag of gameDetails.tags"
             class="tags-box"
             fxFlex="100%"
-            fxFlex.gt-md="calc(33% - 16px)"
-            fxFlex.gt-sm="calc(33% - 16px)"
-            fxFlex.gt-xs="calc(50% - 16px)"
+            fxFlex.gt-md="calc(20% - 16px)"
+            fxFlex.gt-sm="calc(25% - 16px)"
+            fxFlex.gt-xs="calc(33% - 16px)"
             fxFlex.gt-xxs="calc(50% - 16px)"
           >
             <mat-card class="tag-card">
@@ -215,5 +233,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

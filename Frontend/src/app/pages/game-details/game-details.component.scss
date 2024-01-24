@@ -140,6 +140,7 @@
   padding: 10px;
   margin: 5px;
   background-color: transparent;
+  border: none !important;
 }
 .additional-info {
   display: flex;
@@ -159,7 +160,8 @@
 .horizontal-publishers,
 .horizontal-esrb_rating,
 .horizontal-website,
-.horizontal-release-date {
+.horizontal-release-date,
+.horizontal-tags {
   display: flex;
   align-items: center;
   font-family: "Cabin", sans-serif;
@@ -176,7 +178,8 @@
 #publishers-title,
 #esrb_rating-title,
 #website-title,
-#release-date-title {
+#release-date-title,
+#tags-title {
   margin-right: 10px;
   font-family: "Bebas Neue", sans-serif;
   font-size: 1.3rem;
@@ -227,23 +230,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; /* Changed to column */
+  flex-direction: column;
 }
-
-.tags-array {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 .horizontal-tags {
-  color: white;
   flex-wrap: wrap;
-  padding: 100px;
 }
-
-.tags-hero {
-  margin-top: 60px; /* Added margin-bottom to create space between h1 and hr */
+.tag-box {
+  font-size: smaller;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 20px;
+  background-color: #252728;
+  margin: 1px;
 }
 
 // media queries
