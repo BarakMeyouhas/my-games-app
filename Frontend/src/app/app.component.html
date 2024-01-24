@@ -12,16 +12,14 @@
     <span id="logo">My Games App</span>
   </div>
   <div class="header-left-container">
-    <form class="search-form">
+    <div class="search-form">
       <input
         [(ngModel)]="searchValue"
         class="search"
-        matInput
         placeholder="Search"
-        (keyup)="onKeyUp($event)"
       />
       <mat-icon (click)="searchGame()" class="search-icon">search</mat-icon>
-    </form>
+    </div>
   </div>
 </mat-toolbar>
 

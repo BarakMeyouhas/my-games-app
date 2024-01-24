@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
 
-type CardContent = {
-  title: string;
-  description: string;
-  imageUrl: string;
-};
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,13 +9,9 @@ export class AppComponent {
   title = 'my-games-app';
   showFiller = true;
 
-  searchValue: string = '';
+  searchValue = '';
 
-  onKeyUp(event: KeyboardEvent): void {
-    console.log('Search value on keyup:', this.searchValue);
-  }
-
-  searchGame(): void {
+  searchGame() {
     console.log('Search value on icon click:', this.searchValue);
   }
 

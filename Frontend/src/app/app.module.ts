@@ -52,7 +52,6 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
-    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
