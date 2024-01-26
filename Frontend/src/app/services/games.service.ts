@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +12,20 @@ export class GamesService {
   private allGamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}`;
   private searchGamesURL = 'http://localhost:4000/api/v1/games/searchGames';
   
+  private searchResults : any = [];
 
-  constructor(private http: HttpClient) {}
+
+  
+  private searchResultsSubject = new Subject<any>();
+  searchResults$ = this.searchResultsSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.searchResults$ = this.searchResultsSubject.asObservable();
+  }
+
+  setSearchResults(searchResults: any): void {
+    this.searchResultsSubject.next(searchResults);
+  }
 
   getAllGames(): Observable<any> {
     return this.http.get(`${this.allGamesURL}`);

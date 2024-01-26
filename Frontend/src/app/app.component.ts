@@ -5,25 +5,30 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'], // Fix typo in styleUrls
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'my-games-app';
   showFiller = true;
   searchValue = '';
-  searchResultsArray = [];
+  public searchResultsArray: any = [];
 
   constructor(
     private route: ActivatedRoute,
     private gamesService: GamesService
-  ) {}
+  ) {
+    this.gamesService.setSearchResults(this.searchResultsArray);
+  }
 
   searchGame() {
     this.gamesService
       .searchGames(this.searchValue)
       .subscribe((searchResults) => {
-        console.log('Search results:', searchResults.results);
         this.searchResultsArray = searchResults.results;
+        console.log('Search results:', this.searchResultsArray);
+
+        // Set search results in GamesService
+        this.gamesService.setSearchResults(this.searchResultsArray);
       });
   }
 

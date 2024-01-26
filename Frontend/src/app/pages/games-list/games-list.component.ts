@@ -10,14 +10,33 @@ import { Router } from '@angular/router';
 export class GamesListComponent implements OnInit {
   gamesData: any[] = [];
   showEffect: boolean = false;
-  page: number = 1; // Initial page
+  page: number = 1;
   localStorageKey: string = 'allGames';
+  public searchResultsArray: any = [];
 
-  constructor(private gamesService: GamesService, private router: Router) {}
+  constructor(private gamesService: GamesService, private router: Router) {
+    this.gamesService.searchResults$?.subscribe((searchResultsArray) => {
+      this.searchResultsArray = searchResultsArray;
+      console.log(this.searchResultsArray);
+    });
+    // Subscribe to searchResults$ to update searchResultsArray
+    this.gamesService.searchResults$.subscribe((searchResults) => {
+      this.searchResultsArray = searchResults;
+      console.log('Search results from GamesService:', this.searchResultsArray);
+      this.updateBasedOnSearch();
+    });
+  }
+  updateBasedOnSearch(): void {
+    if (this.searchResultsArray.length > 0) {
+      this.gamesData = this.searchResultsArray;
+      console.log('Updated games', this.gamesData);
+    }
+  }
 
   ngOnInit(): void {
     this.loadGames();
     this.loadAllGames();
+    this.updateBasedOnSearch();
   }
 
   loadAllGames(): void {
