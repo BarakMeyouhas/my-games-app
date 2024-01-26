@@ -175,7 +175,10 @@
           </div>
         </div>
       </div>
-      <div *ngIf="gameDetails.tags && gameDetails.tags.length" class="tags-container">
+      <div
+        *ngIf="gameDetails.tags && gameDetails.tags.length"
+        class="tags-container"
+      >
         <div class="horizontal-tags">
           <div id="tags-title">Tags:</div>
           <div *ngFor="let tag of gameDetails.tags" class="tag-box">
@@ -187,13 +190,12 @@
   </div>
   <br /><br /><br /><br /><br />
 
-
   <!-- started working on chart -->
 
-
-  <div style="width: 800px;"><canvas id="chart"></canvas></div>
-  <script type="module" src="acquisitions.js"></script>
+  <div class="chart-container">
+    <canvas id="chart">{{ chart }}</canvas>
+    <h1>hello world</h1>
+  </div>
 
   <!-- chart ends here -->
-
 </div>

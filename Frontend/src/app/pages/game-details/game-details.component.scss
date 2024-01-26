@@ -243,6 +243,10 @@
   margin: 1px;
 }
 
+.chart-container {
+  max-height: 300px;
+}
+
 // media queries
 @media screen and (max-width: 320px) {
   .darkOverlay {

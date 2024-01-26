@@ -15,16 +15,20 @@ export class GamesListComponent implements OnInit {
   public searchResultsArray: any = [];
 
   constructor(private gamesService: GamesService, private router: Router) {
+
     this.gamesService.searchResults$?.subscribe((searchResultsArray) => {
       this.searchResultsArray = searchResultsArray;
       console.log(this.searchResultsArray);
     });
+
+
     // Subscribe to searchResults$ to update searchResultsArray
     this.gamesService.searchResults$.subscribe((searchResults) => {
       this.searchResultsArray = searchResults;
       console.log('Search results from GamesService:', this.searchResultsArray);
       this.updateBasedOnSearch();
     });
+    
   }
   updateBasedOnSearch(): void {
     if (this.searchResultsArray.length > 0) {
