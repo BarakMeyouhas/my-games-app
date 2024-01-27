@@ -14,13 +14,6 @@ export class GameDetailsComponent implements OnInit {
   chart: any = [];
   pieChartLabels: any = [];
 
-  slides: any[] = new Array(3).fill({
-    id: -1,
-    src: '',
-    title: '',
-    subtitle: '',
-  });
-
   constructor(
     private route: ActivatedRoute,
     private gamesService: GamesService
@@ -28,60 +21,61 @@ export class GameDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameId = this.route.snapshot.paramMap.get('id');
-    const localStorageKey = `gameDetails_${this.gameId}`;
 
-    const storedDetails = localStorage.getItem(localStorageKey);
+    this.gamesService.getGameDetails(this.gameId).subscribe((details) => {
+      this.gameDetails = details;
 
-    if (storedDetails) {
-      this.gameDetails = JSON.parse(storedDetails);
-      console.log('Game Details from local storage:', this.gameDetails);
-    } else {
-      this.gamesService.getGameDetails(this.gameId).subscribe((details) => {
-        this.gameDetails = details;
-        console.log('Game Details from API:', this.gameDetails);
-
-        localStorage.setItem(localStorageKey, JSON.stringify(this.gameDetails));
+      var labels = this.gameDetails.ratings.map((rating: any) => {
+        return rating.title;
       });
-    }
 
-    var labels = this.gameDetails.ratings.map((rating: any) => {
-      return rating.title;
-    });
+      var data = this.gameDetails.ratings.map((rating: any) => {
+        return rating.count;
+      });
 
-    var data =  this.gameDetails.ratings.map((rating: any) => {
-      return rating.count;
-    });
-
-    if (this.gameDetails) {
-
-      this.chart = new Chart('chart', {
-        type: 'doughnut',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: 'Game Ratings',
-              data: data,
-              backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'red'
-              ],
-              hoverOffset: 4,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
+      if (this.gameDetails) {
+        this.chart = new Chart('chart', {
+          type: 'doughnut',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Game Ratings',
+                data: data,
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(54, 162, 235)',
+                  'rgb(255, 205, 86)',
+                  'red',
+                ],
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
             },
           },
-        },
-      });
-    }
+        });
+      }
 
+      // Now that we have gameDetails, fetch additional details by name
+      this.fetchAdditionalDetailsByName(this.gameDetails.slug);
+    });
+  }
+
+  fetchAdditionalDetailsByName(gameName: string): void {
+    this.gamesService.searchGames(gameName).subscribe((searchResults) => {
+      var screenshotsArray = searchResults.results[0].short_screenshots;
+  
+      // Filter out screenshots with id less than 0
+      var filteredScreenshots = screenshotsArray.filter((screenshot: any) => screenshot.id >= 0);
+  
+      console.log(filteredScreenshots);
+    });
   }
 
   redirectToStore(domain: string): void {

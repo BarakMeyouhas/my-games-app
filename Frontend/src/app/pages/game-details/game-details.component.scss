@@ -245,6 +245,9 @@
 
 .chart-container {
   max-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // media queries

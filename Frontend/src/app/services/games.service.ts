@@ -12,6 +12,7 @@ export class GamesService {
   private allGamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}`;
   private searchGamesURL = 'http://localhost:4000/api/v1/games/searchGames';
   
+  
   private searchResults : any = [];
 
 
@@ -39,8 +40,8 @@ export class GamesService {
     return this.http.get(`${this.gameDetailsURL}/${gameId}?key=${this.APIKEY}`);
   }
 
-  searchGames(searchTerm: string): Observable<any> {
-    const url = `${this.searchGamesURL}/${searchTerm}?key=${this.APIKEY}`;
+  searchGames(gameName: string): Observable<any> {
+    const url = `${this.searchGamesURL}/${gameName}?key=${this.APIKEY}`;
     return this.http.get(url);
   }
 }
