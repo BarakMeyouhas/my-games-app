@@ -24,6 +24,9 @@ import { MatListModule } from '@angular/material/list';
 import { GameDetailsComponent } from './pages/game-details/game-details.component';
 import { TruncatePipe } from './features/truncate.pipe';
 import { FormsModule } from '@angular/forms';
+import { CarouselComponent } from './carousel/carousel.component';
+import { AutocompleteService } from './services/autocomplete.service';
+import { AutocompleteComponent } from './features/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
@@ -33,8 +36,11 @@ import { FormsModule } from '@angular/forms';
     GamesListComponent,
     GameDetailsComponent,
     TruncatePipe,
+    AutocompleteComponent,
+    
   ],
   imports: [
+    
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -52,8 +58,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
+    CarouselComponent,
   ],
-  providers: [],
+  providers: [AutocompleteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

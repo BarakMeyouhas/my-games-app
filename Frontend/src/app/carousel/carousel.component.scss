@@ -1,0 +1,17 @@
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+}
+.img {
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  width: 50px;
+}
+
+@media screen and (max-width: 992px) {
+  .img {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+}

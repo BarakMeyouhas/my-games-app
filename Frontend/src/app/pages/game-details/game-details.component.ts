@@ -1,6 +1,6 @@
+import { GamesService } from '../../services/games.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GamesService } from '../../services/games.service';
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -9,6 +9,8 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./game-details.component.scss'],
 })
 export class GameDetailsComponent implements OnInit {
+  slides: any[] = [];
+
   gameId: any;
   gameDetails: any;
   chart: any = [];
@@ -16,13 +18,13 @@ export class GameDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private gamesService: GamesService
+    private GamesService: GamesService
   ) {}
 
   ngOnInit(): void {
     this.gameId = this.route.snapshot.paramMap.get('id');
 
-    this.gamesService.getGameDetails(this.gameId).subscribe((details) => {
+    this.GamesService.getGameDetails(this.gameId).subscribe((details) => {
       this.gameDetails = details;
 
       var labels = this.gameDetails.ratings.map((rating: any) => {
@@ -68,13 +70,14 @@ export class GameDetailsComponent implements OnInit {
   }
 
   fetchAdditionalDetailsByName(gameName: string): void {
-    this.gamesService.searchGames(gameName).subscribe((searchResults) => {
+    this.GamesService.searchGames(gameName).subscribe((searchResults) => {
       var screenshotsArray = searchResults.results[0].short_screenshots;
-  
-      // Filter out screenshots with id less than 0
-      var filteredScreenshots = screenshotsArray.filter((screenshot: any) => screenshot.id >= 0);
-  
-      console.log(filteredScreenshots);
+      var filteredScreenshots = screenshotsArray.filter(
+        (screenshot: any) => screenshot.id >= 0
+      );
+      this.slides = filteredScreenshots;
+
+      console.log(this.slides);
     });
   }
 

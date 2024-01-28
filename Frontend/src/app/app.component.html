@@ -17,6 +17,7 @@
         [(ngModel)]="searchValue"
         class="search"
         placeholder="Search"
+        (input)="onSearchInput()"
       />
       <mat-icon (click)="searchGame()" class="search-icon">search</mat-icon>
     </div>
@@ -24,8 +25,9 @@
 </mat-toolbar>
 
 <mat-drawer-container>
-  <mat-drawer #drawer mode="side">I'm a drawer</mat-drawer>
+  <mat-drawer #drawer mode="over">I'm a drawer</mat-drawer>
   <mat-drawer-content class="main-container">
+    <app-autocomplete [suggestions]="autocompleteSuggestions"></app-autocomplete>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

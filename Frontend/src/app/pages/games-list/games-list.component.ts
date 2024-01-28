@@ -14,16 +14,16 @@ export class GamesListComponent implements OnInit {
   localStorageKey: string = 'allGames';
   public searchResultsArray: any = [];
 
-  constructor(private gamesService: GamesService, private router: Router) {
+  constructor(private GamesService: GamesService, private router: Router) {
 
-    this.gamesService.searchResults$?.subscribe((searchResultsArray) => {
+    this.GamesService.searchResults$?.subscribe((searchResultsArray) => {
       this.searchResultsArray = searchResultsArray;
       console.log(this.searchResultsArray);
     });
 
 
     // Subscribe to searchResults$ to update searchResultsArray
-    this.gamesService.searchResults$.subscribe((searchResults) => {
+    this.GamesService.searchResults$.subscribe((searchResults) => {
       this.searchResultsArray = searchResults;
       console.log('Search results from GamesService:', this.searchResultsArray);
       this.updateBasedOnSearch();
@@ -44,7 +44,7 @@ export class GamesListComponent implements OnInit {
   }
 
   loadAllGames(): void {
-    this.gamesService.getAllGames().subscribe((games) => {
+    this.GamesService.getAllGames().subscribe((games) => {
       this.gamesData = [...this.gamesData, ...games.results];
       localStorage.setItem(
         this.localStorageKey,
@@ -57,7 +57,7 @@ export class GamesListComponent implements OnInit {
 
   loadGames(): void {
     console.log('Making an API call to get Games');
-    this.gamesService.get20Games(this.page).subscribe((results) => {
+    this.GamesService.get20Games(this.page).subscribe((results) => {
       this.gamesData = [...this.gamesData, ...results.results];
       this.page++;
 
@@ -76,7 +76,7 @@ export class GamesListComponent implements OnInit {
   }
 
   gameDetailsById(gameId: string): void {
-    this.gamesService.getGameDetails(gameId).subscribe((details) => {
+    this.GamesService.getGameDetails(gameId).subscribe((details) => {
       console.log('Game Details:', details);
     });
   }
@@ -92,7 +92,7 @@ export class GamesListComponent implements OnInit {
       );
       this.router.navigate(['/gameDetails', gameId]);
     } else {
-      this.gamesService
+      this.GamesService
         .getGameDetails(gameId.toString())
         .subscribe((details) => {
           console.log('Game Details from API:', details);

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GamesService } from './games.service';
+import { AutocompleteService } from './autocomplete.service';
 
-describe('GamesService', () => {
-  let service: GamesService;
+describe('AutocompleteService', () => {
+  let service: AutocompleteService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GamesService);
+    service = TestBed.inject(AutocompleteService);
   });
 
   it('should be created', () => {
