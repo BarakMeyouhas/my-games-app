@@ -39,7 +39,7 @@ export class AppComponent {
       this.autocompleteService
         .getAutocompleteResults(input$)
         .subscribe((suggestions) => {
-          this.autocompleteSuggestions = suggestions.results.slice(0, 4);
+          this.autocompleteSuggestions = suggestions.results.slice(0, 10);
         });
     }
   }

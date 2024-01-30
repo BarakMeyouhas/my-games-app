@@ -24,7 +24,6 @@ import { MatListModule } from '@angular/material/list';
 import { GameDetailsComponent } from './pages/game-details/game-details.component';
 import { TruncatePipe } from './features/truncate.pipe';
 import { FormsModule } from '@angular/forms';
-import { CarouselComponent } from './carousel/carousel.component';
 import { AutocompleteService } from './services/autocomplete.service';
 import { AutocompleteComponent } from './features/autocomplete/autocomplete.component';
 
@@ -58,7 +57,6 @@ import { AutocompleteComponent } from './features/autocomplete/autocomplete.comp
     MatFormFieldModule,
     MatSidenavModule,
     MatListModule,
-    CarouselComponent,
   ],
   providers: [AutocompleteService],
   bootstrap: [AppComponent],

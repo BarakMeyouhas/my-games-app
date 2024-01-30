@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-autocomplete',
@@ -9,6 +10,11 @@ import { Component, Input } from '@angular/core';
           *ngFor="let suggestion of suggestions"
           (click)="selectSuggestion(suggestion)"
         >
+          <img
+            class="game-image"
+            [src]="suggestion.background_image"
+            alt="Game Image"
+          />
           {{ suggestion.name }}
         </li>
       </ul>
@@ -16,6 +22,7 @@ import { Component, Input } from '@angular/core';
   `,
   styles: [
     `
+      @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
       ul {
         list-style-type: none;
         padding: 0;
@@ -33,6 +40,16 @@ import { Component, Input } from '@angular/core';
       li {
         padding: 8px;
         cursor: pointer;
+        font-family: 'Alata', sans-serif;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+      }
+      .game-image {
+        width: 60px;
+        height: 40px;
+        margin-right: 8px;
+        border-radius: 6px;
       }
 
       li:hover {
@@ -47,41 +64,45 @@ import { Component, Input } from '@angular/core';
 
       @media (max-width: 1441px) and (min-width: 1026px) {
         ul {
-          margin-left: 983px;
-          width: 249px;
+          margin-left: 1152px;
+          width: auto;
         }
       }
-      @media (max-width: 115px) and (min-width: 1268px) {
+      @media (min-width: 1268px) {
         ul {
-          margin-left: 750px;
-          width: 270px;
+          margin-left: 850px;
+          width: auto;
         }
       }
       @media (max-width: 1025px) and (min-width: 769px) {
         ul {
-          margin-left: 749px;
-          width: 270px;
+          margin-left: 728px;
+          width: auto;
         }
       }
 
       @media (min-width: 427px) and (max-width: 768px) {
         ul {
-          margin-left: 520px;
+          margin-left: 440px;
+          width: auto;
         }
       }
       @media (max-width: 426px) and (min-width: 376px) {
         ul {
-          margin-left: 255px;
+          margin-left: 0px;
+          width: auto;
         }
       }
       @media (max-width: 376px) and (min-width: 321px) {
         ul {
-          margin-left: 213px;
+          margin-left: 0px;
+          width: auto;
         }
       }
       @media (max-width: 321px) and (min-width: 320px) {
         ul {
-          margin-left: 170px;
+          margin-left: 0px;
+          width: auto;
         }
       }
     `,
@@ -91,7 +112,14 @@ export class AutocompleteComponent {
   @Input() suggestions: any[] = [];
   @Input() isInputEmpty: boolean = false;
 
+  constructor(private router: Router) {}
+
   selectSuggestion(suggestion: any): void {
     console.log('Selected suggestion:', suggestion);
+
+    // Check if suggestion has an id and navigate to game details
+    if (suggestion.id) {
+      this.router.navigate(['/gameDetails', suggestion.id]);
+    }
   }
 }
