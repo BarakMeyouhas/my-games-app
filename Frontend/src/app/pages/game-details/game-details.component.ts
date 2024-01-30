@@ -11,10 +11,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class GameDetailsComponent implements OnInit {
   slides: any[] = [];
-
   gameId: any;
   gameDetails: any;
-  chart: any = [];
+  chart: any = null;
   pieChartLabels: any = [];
 
   constructor(
@@ -23,18 +22,12 @@ export class GameDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
-    // Subscribe to route changes
     this.route.paramMap
       .pipe(
         switchMap((params: ParamMap) => {
-          // Extract the 'id' parameter from the route
           this.gameId = params.get('id');
-          // Fetch game details based on the new 'id'
           return this.GamesService.getGameDetails(this.gameId);
-          
         })
-        
       )
       .subscribe((details) => {
         this.gameDetails = details;
@@ -48,7 +41,11 @@ export class GameDetailsComponent implements OnInit {
         });
 
         if (this.gameDetails) {
-          
+          console.log(data);
+          console.log(labels);
+          if (this.chart) {
+            this.chart.destroy();
+          }
           this.chart = new Chart('chart', {
             type: 'doughnut',
             data: {
@@ -76,8 +73,6 @@ export class GameDetailsComponent implements OnInit {
             },
           });
         }
-
-        // Now that we have gameDetails, fetch additional details by name
         this.fetchAdditionalDetailsByName(this.gameDetails.slug);
       });
   }
