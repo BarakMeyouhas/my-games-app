@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabin&display=swap");
 
 .container {
-  background-color: transparent;
+  background-color: #02002b;
   font-family: "Bebas Neue", sans-serif;
 }
 .game-card-header {
@@ -76,7 +76,7 @@
 }
 .stores-container {
   height: auto;
-  background-color: black;
+  background-color: #01001b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,6 +129,8 @@
   display: flex;
   justify-content: space-between;
   font-family: "Kanit", sans-serif;
+  background-color: #02002b;
+
 }
 
 .description,
@@ -138,7 +140,7 @@
   height: 100%;
   padding: 10px;
   margin: 5px;
-  background-color: transparent;
+  background-color: #03003d;
   border: none !important;
 }
 .additional-info {
@@ -240,7 +242,7 @@
   color: #ffffff;
   padding: 8px;
   border-radius: 20px;
-  background-color: #252728;
+  background-color: #01001b;
   margin: 1px;
 }
 #chart {
@@ -250,22 +252,16 @@
 
 .chart-container {
   height: auto;
-  background-color: black;
+  background-color: #01001b;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
 }
 
-// #ratings-title {
-//   background-color: black;
-//   margin: auto;
-//   font-family: "Bebas Neue", sans-serif;
-//   font-size: xx-large;
-// }
 .rating-container {
   height: auto;
-  background-color: black;
+  background-color: #01001b;
   padding: 25px;
 }
 .rating-container > h1 {

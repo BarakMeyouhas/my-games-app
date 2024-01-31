@@ -34,7 +34,7 @@ import { Router } from '@angular/router';
         left: 0;
         right: 0;
         z-index: 1;
-        background-color: black;
+        background-color: #02001d;
       }
 
       li {

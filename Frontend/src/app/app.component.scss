@@ -40,6 +40,22 @@
   display: flex;
   align-items: center;
 }
+.drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: #010013;
+}
+
+.drawer-button {
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+}
+.mat-toolbar {
+  background-color: #010013;
+}
+
 @media screen and (max-width: 426px) {
   .search {
     width: 100px;

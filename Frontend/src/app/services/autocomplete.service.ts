@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { environment } from '../../environments/environments';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AutocompleteService {
-  private APIKEY = 'c1cff7ce8544427797e07592e1e53079';
+  private APIKEY = environment.API_KEY;
   private autocompleteURL = 'http://localhost:4000/api/v1/games/searchGames';
 
   constructor(private http: HttpClient) {}
