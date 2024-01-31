@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-autocomplete',
   template: `
-    <div class="autocomplete-box">
+    <div class="autocomplete-box" *ngIf="showAutocomplete">
       <ul *ngIf="suggestions.length > 0 && !isInputEmpty">
         <li
           *ngFor="let suggestion of suggestions"
@@ -111,15 +111,21 @@ import { Router } from '@angular/router';
 export class AutocompleteComponent {
   @Input() suggestions: any[] = [];
   @Input() isInputEmpty: boolean = false;
+  @Output() suggestionSelected = new EventEmitter<any>();
+  showAutocomplete: boolean = true;
 
   constructor(private router: Router) {}
 
+  ngOnChanges(): void {
+    // Reset showAutocomplete to true when input changes
+    this.showAutocomplete = true;
+  }
+
   selectSuggestion(suggestion: any): void {
     console.log('Selected suggestion:', suggestion);
-
-    // Check if suggestion has an id and navigate to game details
     if (suggestion.id) {
       this.router.navigate(['/gameDetails', suggestion.id]);
+      this.showAutocomplete = false;
     }
   }
 }

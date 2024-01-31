@@ -55,8 +55,8 @@ export class GameDetailsComponent implements OnInit {
                   label: 'Game Ratings',
                   data: data,
                   backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
+                    'blue',
+                    'green',
                     'rgb(255, 205, 86)',
                     'red',
                   ],
@@ -68,6 +68,17 @@ export class GameDetailsComponent implements OnInit {
               scales: {
                 y: {
                   beginAtZero: true,
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: 'bottom',
+                },
+              },
+              elements: {
+                arc: {
+                  backgroundColor: 'rgba(0, 0, 0, 0)',
                 },
               },
             },
