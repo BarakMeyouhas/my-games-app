@@ -5,18 +5,31 @@ import { AutocompleteService } from './services/autocomplete.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environments/environments';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0})),
+      transition('void <=> *', animate('400ms')),
+    ]),
+  ],
 })
 export class AppComponent {
   title = 'my-games-app';
   showFiller = true;
   searchValue = '';
   genres: any[] = [];
+  showGenres: boolean = false;
   autocompleteSuggestions: any[] = [];
   isInputEmpty: boolean = false;
 
@@ -36,10 +49,8 @@ export class AppComponent {
     });
 
     if (this.searchValue.trim() === '') {
-      // If search value is empty, hide autocomplete suggestions
       this.autocompleteSuggestions = [];
     } else {
-      // Fetch autocomplete suggestions if search value is not empty
       this.autocompleteService
         .getAutocompleteResults(input$)
         .subscribe((suggestions) => {
@@ -53,8 +64,6 @@ export class AppComponent {
       (searchResults) => {
         this.searchResultsArray = searchResults.results;
         console.log('Search results:', this.searchResultsArray);
-
-        // Set search results in GamesService
         this.GamesService.setSearchResults(this.searchResultsArray);
       }
     );
@@ -68,12 +77,17 @@ export class AppComponent {
   }
   private APIKEY = environment.API_KEY;
 
-  logGenres(): void {
+  toggleGenres(): void {
     const genresURL = `https://api.rawg.io/api/genres?key=${this.APIKEY}`;
 
     this.http.get(genresURL).subscribe((response: any) => {
-      this.genres = response.results; // Assuming 'results' is an array in the response
+      this.genres = response.results;
       console.log('Genres:', this.genres);
     });
+    this.showGenres = !this.showGenres;
+  }
+
+  navigateToGenre(genreId: string): void {
+    this.router.navigate(['/gameListByGenre', genreId]);
   }
 }

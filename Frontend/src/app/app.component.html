@@ -29,9 +29,26 @@
     <button class="drawer-button" mat-button (click)="navigateToHome()">
       <mat-icon>home</mat-icon>Home
     </button>
-    <button class="drawer-button" mat-button (click)="logGenres()">
+
+    <button class="drawer-button" mat-button (click)="toggleGenres()">
       <mat-icon>category</mat-icon>Genres
     </button>
+
+    <div *ngIf="showGenres" class="genres-list" [@fadeInOut]>
+      <button
+        class="genre-button"
+        *ngFor="let genre of genres"
+        mat-button
+        (click)="navigateToGenre(genre.id)"
+      >
+        <img
+          class="genre-image"
+          [src]="genre.image_background"
+          alt="genre Image"
+        />
+        {{ genre.name }}
+      </button>
+    </div>
   </mat-drawer>
   <mat-drawer-content class="main-container">
     <app-autocomplete

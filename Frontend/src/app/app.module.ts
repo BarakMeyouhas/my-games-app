@@ -26,6 +26,7 @@ import { TruncatePipe } from './features/truncate.pipe';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteService } from './services/autocomplete.service';
 import { AutocompleteComponent } from './features/autocomplete/autocomplete.component';
+import { GameListByGenreComponent } from './pages/game-list-by-genre/game-list-by-genre.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AutocompleteComponent } from './features/autocomplete/autocomplete.comp
     GameDetailsComponent,
     TruncatePipe,
     AutocompleteComponent,
+    GameListByGenreComponent,
     
   ],
   imports: [

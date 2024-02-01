@@ -1,11 +1,24 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-autocomplete',
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({ opacity: 0})),
+      transition('void <=> *', animate('400ms')),
+    ]),
+  ],
   template: `
     <div class="autocomplete-box" *ngIf="showAutocomplete">
-      <ul *ngIf="suggestions.length > 0 && !isInputEmpty">
+      <ul *ngIf="suggestions.length > 0 && !isInputEmpty" [@fadeInOut]>
         <li
           *ngFor="let suggestion of suggestions"
           (click)="selectSuggestion(suggestion)"
