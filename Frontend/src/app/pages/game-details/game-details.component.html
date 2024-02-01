@@ -67,6 +67,18 @@
     </mat-card-header>
   </mat-card>
 
+  <div class="trailer-container">
+    <iframe
+      *ngIf="GameTrailerId"
+      width="100%"
+      height="450"
+      [src]="getYouTubeEmbedUrl(GameTrailerId)"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    ></iframe>
+  </div>
+
   <div class="stores-container">
     <div class="stores-title">
       <div>
@@ -203,8 +215,8 @@
 
   <!-- started working on chart -->
   <div class="rating-container">
-    <h1 style="font-family: 'Bebas Neue', sans-serif;">Game Rating</h1>
-    <hr>
+    <h1 style="font-family: 'Bebas Neue', sans-serif">Game Rating</h1>
+    <hr />
     <div class="chart-container">
       <canvas id="chart">{{ chart }}</canvas>
     </div>

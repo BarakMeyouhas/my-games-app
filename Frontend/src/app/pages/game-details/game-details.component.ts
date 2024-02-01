@@ -3,6 +3,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import Chart from 'chart.js/auto';
 import { switchMap } from 'rxjs/operators';
+import { environment } from '../../../environments/environments';
+import { HttpClient } from '@angular/common/http';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-game-details',
@@ -15,10 +18,17 @@ export class GameDetailsComponent implements OnInit {
   gameDetails: any;
   chart: any = null;
   pieChartLabels: any = [];
+  gameName: string = '';
+  GameTrailerId: string = '';
+
+  // private youtubeURL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&key=${environment.YOUTUBE_API_KEY}&id=`;
+  private youtubeSearchGameTrailerURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${environment.YOUTUBE_API_KEY}&type=video&q=${this.gameName}&maxResults=1`;
 
   constructor(
     private route: ActivatedRoute,
-    private GamesService: GamesService
+    private GamesService: GamesService,
+    private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -41,8 +51,6 @@ export class GameDetailsComponent implements OnInit {
         });
 
         if (this.gameDetails) {
-          console.log(data);
-          console.log(labels);
           if (this.chart) {
             this.chart.destroy();
           }
@@ -85,6 +93,18 @@ export class GameDetailsComponent implements OnInit {
           });
         }
         this.fetchAdditionalDetailsByName(this.gameDetails.slug);
+
+        // Concatenate 'trailer' to the game name before making the HTTP request
+        const gameNameWithTrailer = this.gameDetails.slug + ' game trailer';
+        this.youtubeSearchGameTrailerURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${environment.YOUTUBE_API_KEY}&type=video&q=${gameNameWithTrailer}&maxResults=1`;
+
+        // Make the HTTP request to the YouTube API
+        this.http
+          .get(this.youtubeSearchGameTrailerURL)
+          .subscribe((youtubeData: any) => {
+            var GameTrailerId = youtubeData.items[0].id.videoId;
+            this.GameTrailerId = GameTrailerId;
+          });
       });
   }
 
@@ -102,5 +122,15 @@ export class GameDetailsComponent implements OnInit {
 
   redirectToStore(domain: string): void {
     window.open('http://' + domain, '_blank');
+  }
+  getYouTubeEmbedUrl(
+    GameTrailerId: string | undefined
+  ): SafeResourceUrl | string {
+    if (GameTrailerId) {
+      const youtubeEmbedUrl = `https://www.youtube.com/embed/${GameTrailerId}?autoplay=0`;
+      return this.sanitizer.bypassSecurityTrustResourceUrl(youtubeEmbedUrl);
+    } else {
+      return '';
+    }
   }
 }

@@ -130,7 +130,6 @@
   justify-content: space-between;
   font-family: "Kanit", sans-serif;
   background-color: #02002b;
-
 }
 
 .description,
@@ -271,6 +270,9 @@
 
 // media queries
 @media screen and (max-width: 320px) {
+  .trailer-container {
+    margin-top: 100px;
+  }
   .darkOverlay {
     height: auto;
   }
@@ -304,6 +306,11 @@
 }
 
 @media screen and (max-width: 376px) {
+  .trailer-container {
+    margin-top: 300px;
+    height: 250px;
+    width: 100%;
+  }
   .horizontal-stores {
     padding: 35px;
   }
@@ -323,6 +330,10 @@
   }
 }
 @media screen and (min-width: 425px) {
+  .trailer-container {
+    margin-top: 300px;
+    width: 100%;
+  }
   #publishers-title {
     margin-bottom: 12px;
   }
@@ -331,6 +342,11 @@
   }
 }
 @media screen and (max-width: 426px) {
+  .trailer-container {
+    margin-top: 300px;
+    height: 250px;
+    width: 100%;
+  }
   .genre-box,
   .Achievements-box,
   .publishers-box,
@@ -375,6 +391,7 @@
   }
 }
 @media screen and (max-width: 768px) {
+  
   .details-container {
     flex-direction: column;
     align-items: center;
@@ -387,6 +404,9 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .trailer-container{
+    height: 100%;
+  }
   .horizontal-stores {
     padding: 35px;
   }
@@ -404,6 +424,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .trailer-container{
+    height: 100%;
+  }
   .gameTitle {
     font-size: 2.7rem;
     margin-top: 30px;
@@ -424,6 +447,9 @@
   }
 }
 @media screen and (min-width: 1440px) {
+  .trailer-container{
+    height: 100%;
+  }
   .gameTitle {
     font-size: 2.7rem;
     margin-top: 30px;
@@ -455,6 +481,9 @@
   }
 }
 @media screen and (max-width: 1440px) {
+  .trailer-container{
+    height: 100%;
+  }
   .overlayTitle {
     display: flex;
     flex-direction: column;
@@ -463,6 +492,9 @@
   }
 }
 @media screen and (min-width: 2560px) {
+  .trailer-container{
+    height: 100%;
+  }
   .overlayTitle {
     display: flex;
     flex-direction: column;

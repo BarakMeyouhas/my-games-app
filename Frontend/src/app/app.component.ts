@@ -75,7 +75,7 @@ export class AppComponent {
   navigateToHome(): void {
     this.router.navigate(['/']);
   }
-  private APIKEY = environment.API_KEY;
+  private APIKEY = environment.RAWG_API_KEY;
 
   toggleGenres(): void {
     const genresURL = `https://api.rawg.io/api/genres?key=${this.APIKEY}`;

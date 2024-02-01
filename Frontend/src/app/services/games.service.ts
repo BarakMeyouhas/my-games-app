@@ -6,7 +6,7 @@ import { environment } from '../../environments/environments';
   providedIn: 'root',
 })
 export class GamesService {
-  private APIKEY = environment.API_KEY;
+  private APIKEY = environment.RAWG_API_KEY;
   private gamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}&dates=2023-01-01,2023-12-31&ordering=-added&page=`;
   private gameDetailsURL = 'https://api.rawg.io/api/games';
   private allGamesURL = `https://api.rawg.io/api/games?key=${this.APIKEY}`;

@@ -16,8 +16,9 @@ export class GameListByGenreComponent {
   page: number = 1;
   public searchResultsArray: any = [];
   genreId: any | null = null;
+  genreName: string = '';
 
-  private APIKEY = environment.API_KEY;
+  private APIKEY = environment.RAWG_API_KEY;
   private searchGamesByGenresURL = `https://api.rawg.io/api/games?key=${this.APIKEY}&genres=${this.genreId}`;
   private add20GamesByGenreURL = `https://api.rawg.io/api/games?key=${this.APIKEY}&genres=${this.genreId}&ordering=-added&page=`;
 
@@ -76,8 +77,6 @@ export class GameListByGenreComponent {
         `Fetched games for page ${this.page} and genre ${genreId}:`,
         response.results
       );
-
-      // Add the fetched games to the gamesData array
       this.gamesData = [...this.gamesData, ...response.results];
       console.log('Updated gamesData:', this.gamesData);
     });

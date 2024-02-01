@@ -9,7 +9,7 @@ import { environment } from '../../environments/environments';
   providedIn: 'root',
 })
 export class AutocompleteService {
-  private APIKEY = environment.API_KEY;
+  private APIKEY = environment.RAWG_API_KEY;
   private autocompleteURL = 'http://localhost:4000/api/v1/games/searchGames';
 
   constructor(private http: HttpClient) {}
