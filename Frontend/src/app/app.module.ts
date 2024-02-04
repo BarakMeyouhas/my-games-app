@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './Layout/header/header.component';
 import { MenuComponent } from './Layout/menu/menu.component';
 import { FooterComponent } from './Layout/footer/footer.component';
-import { MainComponent } from './Layout/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GamesListComponent } from './pages/games-list/games-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +25,9 @@ import { FormsModule } from '@angular/forms';
 import { AutocompleteService } from './services/autocomplete.service';
 import { AutocompleteComponent } from './features/autocomplete/autocomplete.component';
 import { GameListByGenreComponent } from './pages/game-list-by-genre/game-list-by-genre.component';
+import { NgxGlideModule } from 'ngx-glide';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+
 
 @NgModule({
   declarations: [
@@ -38,11 +39,11 @@ import { GameListByGenreComponent } from './pages/game-list-by-genre/game-list-b
     TruncatePipe,
     AutocompleteComponent,
     GameListByGenreComponent,
-    
   ],
   imports: [
-    
     BrowserModule,
+    SlickCarouselModule,
+    NgxGlideModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -21,7 +21,6 @@ export class GameDetailsComponent implements OnInit {
   gameName: string = '';
   GameTrailerId: string = '';
 
-  // private youtubeURL = `https://www.googleapis.com/youtube/v3/videos?part=snippet&key=${environment.YOUTUBE_API_KEY}&id=`;
   private youtubeSearchGameTrailerURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${environment.YOUTUBE_API_KEY}&type=video&q=${this.gameName}&maxResults=1`;
 
   constructor(
@@ -92,13 +91,10 @@ export class GameDetailsComponent implements OnInit {
             },
           });
         }
-        this.fetchAdditionalDetailsByName(this.gameDetails.slug);
-
-        // Concatenate 'trailer' to the game name before making the HTTP request
-        const gameNameWithTrailer = this.gameDetails.slug + ' game trailer';
+        this.fetchAdditionalDetailsByName(this.gameDetails.name_original);
+        const gameNameWithTrailer =
+          this.gameDetails.name_original + ' game trailer';
         this.youtubeSearchGameTrailerURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${environment.YOUTUBE_API_KEY}&type=video&q=${gameNameWithTrailer}&maxResults=1`;
-
-        // Make the HTTP request to the YouTube API
         this.http
           .get(this.youtubeSearchGameTrailerURL)
           .subscribe((youtubeData: any) => {
@@ -106,7 +102,10 @@ export class GameDetailsComponent implements OnInit {
             this.GameTrailerId = GameTrailerId;
           });
       });
+
   }
+
+  
 
   fetchAdditionalDetailsByName(gameName: string): void {
     this.GamesService.searchGames(gameName).subscribe((searchResults) => {
